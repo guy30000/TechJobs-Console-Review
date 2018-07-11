@@ -115,7 +115,7 @@ public class TechJobs {
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
-
+    int n = 0; //simply a test-----------------
 //        for (HashMap<String, String> gdfg : allJobs) {
 //            String aValue = gdfg.get(allJobs);
 //        ArrayList<String> someJobs = JobData.findAll();
@@ -124,16 +124,18 @@ public class TechJobs {
 //       ArrayList<String> results = JobData.findAll();
 //        System.out.println("\n*** All " + columnChoices.get(columnChoice) + " Values ***");
 
-        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+        //ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
         for (HashMap<String, String> single_JobV : someJobs) {
+            n = n + 1; //simply part of the test
+            for (Map.Entry<String, String> single_EntryV : single_JobV.entrySet()) {
+                //String aValue = single_JobV;
 
-                System.out.println(
-                        "***************\n"
-                        + single_JobV +
-                        "***************");
+
+                System.out.println(n + " -- " + single_EntryV );
+            }
+            System.out.println("***************\n" +  "***************");
         }
-
 
     }
 }
