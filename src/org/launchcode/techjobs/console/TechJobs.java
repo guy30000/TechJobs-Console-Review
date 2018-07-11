@@ -127,12 +127,11 @@ public class TechJobs {
         //ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
         for (HashMap<String, String> single_JobV : someJobs) {
-            n = n + 1; //simply part of the test
             for (Map.Entry<String, String> single_EntryV : single_JobV.entrySet()) {
                 //String aValue = single_JobV;
+                //for (Map.Entry<String, String> entry_FeildV : single_EntryV.getKey())
 
-
-                System.out.println(n + " -- " + single_EntryV );
+                System.out.println(single_EntryV.getKey() + " -- " + single_EntryV.getValue() );
             }
             System.out.println("***************\n" +  "***************");
         }
