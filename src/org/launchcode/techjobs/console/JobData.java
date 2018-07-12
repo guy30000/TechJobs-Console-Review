@@ -82,6 +82,27 @@ public class JobData {
         return jobs;
     }
 
+    public static void findByValue(String column, String value) {
+         loadData();
+}
+//
+//
+//        for (HashMap<String, String> single_JobV : someJobs) {
+//            System.out.println("***************");
+//            for (Map.Entry<String, String> single_EntryV : single_JobV.entrySet()) {
+//                //String aValue = single_JobV;
+//                //for (Map.Entry<String, String> entry_FeildV : single_EntryV.getKey())
+//
+//                System.out.println(single_EntryV.getKey() + ":  " + single_EntryV.getValue() );
+//            }
+//            System.out.println("***************\n");
+//        }
+//
+//    }
+////    Call searchterm and data.------------------
+////        Compare searchterm to heach value in each key(column)
+////        Once searchterm is found add it to list and stop it from checking any further.
+////        Pass the list
     /**
      * Read in data from a CSV file and store it in a list
      */
@@ -122,5 +143,6 @@ public class JobData {
             e.printStackTrace();
         }
     }
+
 
 }

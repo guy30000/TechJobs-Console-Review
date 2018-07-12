@@ -64,10 +64,12 @@ public class TechJobs {
                 if (searchField.equals("all")) {
                     printJobs(JobData.findAll());
                     System.out.println("Search all fields not yet implemented.");
+                    System.out.println(searchTerm + "All");
 
 
                 } else {
                     printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
+                    System.out.println(searchTerm + "Column");
                 }
             }
         }
@@ -114,26 +116,15 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
-
-    int n = 0; //simply a test-----------------
-//        for (HashMap<String, String> gdfg : allJobs) {
-//            String aValue = gdfg.get(allJobs);
-//        ArrayList<String> someJobs = JobData.findAll();
-//        for (Map.Entry<String, String> cheeseV : cheese_n_Desc.entrySet()) {
-//            System.out.println(cheeseV.getKey() + " (" + cheeseV.getValue() + ")");
-//       ArrayList<String> results = JobData.findAll();
-//        System.out.println("\n*** All " + columnChoices.get(columnChoice) + " Values ***");
-
-        //ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+    int n = 0;
 
         for (HashMap<String, String> single_JobV : someJobs) {
+            n = n + 1;
+            System.out.println("***************" + n + "***************");
             for (Map.Entry<String, String> single_EntryV : single_JobV.entrySet()) {
-                //String aValue = single_JobV;
-                //for (Map.Entry<String, String> entry_FeildV : single_EntryV.getKey())
-
-                System.out.println(single_EntryV.getKey() + " -- " + single_EntryV.getValue() );
+                System.out.println(single_EntryV.getKey() + ":  " + single_EntryV.getValue() );
             }
-            System.out.println("***************\n" +  "***************");
+            System.out.println("***************" + n + "***************\n");
         }
 
     }
