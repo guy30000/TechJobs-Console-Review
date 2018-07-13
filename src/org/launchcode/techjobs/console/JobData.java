@@ -81,24 +81,26 @@ public class JobData {
 
         return jobs;
     }
-
-    public static void findByValue(String column, String value) {
-         loadData();
-}
+/////////////////////////////////////////////////////
+//        public static ArrayList<HashMap<String, String>> findByValue(String value) {
+//        loadData();
+//        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 //
-//
-//        for (HashMap<String, String> single_JobV : someJobs) {
-//            System.out.println("***************");
-//            for (Map.Entry<String, String> single_EntryV : single_JobV.entrySet()) {
-//                //String aValue = single_JobV;
-//                //for (Map.Entry<String, String> entry_FeildV : single_EntryV.getKey())
-//
-//                System.out.println(single_EntryV.getKey() + ":  " + single_EntryV.getValue() );
-//            }
-//            System.out.println("***************\n");
+//        for (HashMap<String, String> row : allJobs) {
+//            String searchV =
 //        }
+//            if
 //
+//        //String aValue = row.get(column);
+//
+////        if (aValue.contains(value)) {
+////            jobs.add(row);
+////        }
+////    }
+//
+//        return jobs;
 //    }
+//////////////////////////////////////////////////////
 ////    Call searchterm and data.------------------
 ////        Compare searchterm to heach value in each key(column)
 ////        Once searchterm is found add it to list and stop it from checking any further.
