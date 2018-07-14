@@ -62,11 +62,17 @@ public class TechJobs {
                 String searchTerm = in.nextLine();
 
                 if (searchField.equals("all")) {
+                    int jobcount = 0;
 
                     for (HashMap<String, String> single_JobV : JobData.findAll()) {
+                        int stop = 0;
                         for (Map.Entry<String, String> single_EntryV : single_JobV.entrySet()) {
-                            if (single_EntryV.getValue().equals(searchTerm)) {
-
+                            if (stop == 1) {
+                                continue;
+                            }
+                            if (single_EntryV.getValue().toUpperCase().contains(searchTerm.toUpperCase())) {
+                                stop = 1;
+                                jobcount = jobcount + 1;
                                 System.out.println("***************" + "***************");
                                 for (Map.Entry<String, String> single_EntryVV : single_JobV.entrySet()) {
                                     System.out.println(single_EntryVV.getKey() + ":  " + single_EntryVV.getValue() );
@@ -75,6 +81,10 @@ public class TechJobs {
                             }
 
                         }   /////////////////test
+
+                    }
+                    if (jobcount == 0){
+                        System.out.println("**No results**");
                     }
 
                 } else {

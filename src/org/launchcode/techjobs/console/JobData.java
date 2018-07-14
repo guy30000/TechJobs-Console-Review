@@ -73,8 +73,8 @@ public class JobData {
         for (HashMap<String, String> row : allJobs) {
 
             String aValue = row.get(column);
-
-            if (aValue.contains(value)) {
+//added the case sensitivity to this line
+            if (aValue.toUpperCase().contains(value.toUpperCase())) {
                 jobs.add(row);
             }
         }
