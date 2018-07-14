@@ -11,6 +11,7 @@ import java.util.Scanner;
 public class TechJobs {
 
     private static Scanner in = new Scanner(System.in);
+    private static ArrayList<HashMap<String, String>> searchjob; //added this line //working on moving this to Jobdaya
 
     public static void main(String[] args) {
 
@@ -52,7 +53,7 @@ public class TechJobs {
                     }
                 }
 
-            } else { // choice is "search"
+            } else { // choice is "search"      /////////////////Begining Search
 
                 // How does the user want to search (e.g. by skill or employer)
                 String searchField = getUserSelection("Search by:", columnChoices);
@@ -62,30 +63,24 @@ public class TechJobs {
                 String searchTerm = in.nextLine();
 
                 if (searchField.equals("all")) {
-                    int jobcount = 0;
-
-                    for (HashMap<String, String> single_JobV : JobData.findAll()) {
-                        int stop = 0;
-                        for (Map.Entry<String, String> single_EntryV : single_JobV.entrySet()) {
-                            if (stop == 1) {
-                                continue;
-                            }
-                            if (single_EntryV.getValue().toUpperCase().contains(searchTerm.toUpperCase())) {
-                                stop = 1;
-                                jobcount = jobcount + 1;
-                                System.out.println("***************" + "***************");
-                                for (Map.Entry<String, String> single_EntryVV : single_JobV.entrySet()) {
-                                    System.out.println(single_EntryVV.getKey() + ":  " + single_EntryVV.getValue() );
-                                }
-                                System.out.println("***************" + "***************\n");
-                            }
-
-                        }   /////////////////test
-
-                    }
-                    if (jobcount == 0){
-                        System.out.println("**No results**");
-                    }
+                    printJobs(JobData.findByValue(searchTerm));
+                    /////This should be removed and replaced by the line above
+//                    searchjob = new ArrayList<>();
+//                    for (HashMap<String, String> single_JobV : JobData.findAll()) {
+//                        int stop = 0;
+//                        for (Map.Entry<String, String> single_EntryV : single_JobV.entrySet()) {
+//                            if (stop == 1) {
+//                                continue;
+//                            }
+//                            if (single_EntryV.getValue().toUpperCase().contains(searchTerm.toUpperCase())) {
+//                                stop = 1;
+//                                searchjob .add(single_JobV);
+//
+//                            }
+//                        }
+//                    }
+//                    printJobs(searchjob);
+                    /////////////////End Search
 
                 } else {
                     printJobs(JobData.findByColumnAndValue(searchField, searchTerm));

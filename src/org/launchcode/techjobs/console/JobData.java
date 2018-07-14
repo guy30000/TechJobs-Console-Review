@@ -10,6 +10,7 @@ import java.io.Reader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by LaunchCode
@@ -20,6 +21,7 @@ public class JobData {
     private static Boolean isDataLoaded = false;
 
     private static ArrayList<HashMap<String, String>> allJobs;
+    private static ArrayList<HashMap<String, String>> searchjob; //added this line fir FindByVakye
 
     /**
      * Fetch list of all values from loaded data,
@@ -82,29 +84,27 @@ public class JobData {
         return jobs;
     }
 /////////////////////////////////////////////////////
-//        public static ArrayList<HashMap<String, String>> findByValue(String value) {
-//        loadData();
-//        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
-//
-//        for (HashMap<String, String> row : allJobs) {
-//            String searchV =
-//        }
-//            if
-//
-//        //String aValue = row.get(column);
-//
-////        if (aValue.contains(value)) {
-////            jobs.add(row);
-////        }
-////    }
-//
-//        return jobs;
-//    }
+        public static ArrayList<HashMap<String, String>> findByValue(String value) {
+            loadData();
+            searchjob = new ArrayList<>();
+            for (HashMap<String, String> single_JobV : JobData.findAll()) {
+                int stop = 0;
+                for (Map.Entry<String, String> single_EntryV : single_JobV.entrySet()) {
+                    if (stop == 1) {
+                        continue;
+                    }
+                    if (single_EntryV.getValue().toUpperCase().contains(value.toUpperCase())) {
+                        stop = 1;
+                        searchjob.add(single_JobV);
+
+                    }
+                }
+            }
+            //printJobs(searchjob);
+            return searchjob;
+        }
 //////////////////////////////////////////////////////
-////    Call searchterm and data.------------------
-////        Compare searchterm to heach value in each key(column)
-////        Once searchterm is found add it to list and stop it from checking any further.
-////        Pass the list
+
     /**
      * Read in data from a CSV file and store it in a list
      */
